@@ -47,6 +47,7 @@ class App extends React.Component {
             }
             // await createUserProfileDocument(userAuth);
         })
+        console.log(this.state)
     }
 
     componentWillUnmount() {
