@@ -34,16 +34,17 @@ class App extends React.Component {
                 // в данном случае работать не будет, так как мы не меняем документ с пользователем,
                 // но по любому вернёт snapshot (документ), что нам и нужно
                 onSnapshot(userRef,snapshot => {
-                    console.log(snapshot)
+                    // console.log(snapshot)
                     this.setState({
                         currentUser: {
                             id: snapshot.id,
                             ...snapshot.data()
                         }
                     })
+                    console.log(this.state);
                 })
             } else {
-                this.setState({currentUser: userAuth})
+                this.setState({currentUser: null})
             }
             // await createUserProfileDocument(userAuth);
         })

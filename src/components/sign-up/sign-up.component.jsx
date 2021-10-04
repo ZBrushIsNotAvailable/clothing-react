@@ -24,15 +24,14 @@ class SignUp extends React.Component {
 
         const {displayName, email, password, confirmPassword} = this.state
 
-        if (this.state.password !== this.state.confirmPassword) {
+        if (password !== confirmPassword) {
             alert("passwords don't match")
             return
         }
 
         try {
-            const {user} =
-                await auth.createUserWithEmailAndPassword(email, password)
-
+            const {user} = await auth.createUserWithEmailAndPassword(email, password)
+            console.log(user.email)
             await createUserProfileDocument(user, {displayName})
 
             this.setState({
@@ -47,11 +46,9 @@ class SignUp extends React.Component {
         }
     }
 
-    handleChange = async e => {
+    handleChange = e => {
         const {value, name} = e.target;
-        this.setState({
-            [name]: value
-        })
+        this.setState({[name]: value})
         // console.log(this.state)
     }
 
