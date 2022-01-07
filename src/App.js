@@ -7,22 +7,18 @@ import HomePage from "./pages/homepage/homepage.component";
 import ShopPage from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SignInAndSignUpPage from "./pages/sign-in-and-sign-up/sign-in-and-sign-up.component";
+
 import {auth, createUserProfileDocument} from "./firebase/firebase.utils";
 // import {onSnapshot} from "firebase/firebase-firestore";
 import {onSnapshot} from "firebase/firestore";
 
-class App extends React.Component {
-    constructor(props) {
-        super(props);
+import {setCurrentUser} from "./redux/user/user.actions";
 
-        this.state = {
-            // trusty, если юзер залогинен
-            currentUser: null
-        }
-    }
+import {connect} from "react-redux";
+
+class App extends React.Component {
 
     unsubscribeFromAuth = null
-
 
     componentDidMount() {
         // пока компонента App замаунтенна, эта subscription открыта
@@ -33,18 +29,26 @@ class App extends React.Component {
                 // срабатывает, когда меняется документ в бд.
                 // в данном случае работать не будет, так как мы не меняем документ с пользователем,
                 // но по любому вернёт snapshot (документ), что нам и нужно
-                onSnapshot(userRef,snapshot => {
+                onSnapshot(userRef, snapshot => {
                     // console.log(snapshot)
-                    this.setState({
+                    /*this.setState({
                         currentUser: {
                             id: snapshot.id,
                             ...snapshot.data()
                         }
-                    })
+                    })*/
+                    setCurrentUser({
+                            id:
+                            snapshot.id,
+                            ...snapshot.data()
+                        }
+                    )
+
                     console.log(this.state);
                 })
             } else {
-                this.setState({currentUser: null})
+                // this.setState({currentUser: null})
+                setCurrentUser(null)
             }
             // await createUserProfileDocument(userAuth);
         })
@@ -58,7 +62,8 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Header currentUser={this.state.currentUser}/>
+                {/*<Header currentUser={this.state.currentUser}/>*/}
+                <Header/>
                 <Switch>
                     <Route exact path='/' component={HomePage}/>
                     <Route path='/shop' component={ShopPage}/>
@@ -69,4 +74,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export default connect(null, {setCurrentUser})(App);
