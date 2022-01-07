@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/clothing-react/static/css/main.6e75c6f0.chunk.css",
+    "main.js": "/clothing-react/static/js/main.2eed9d52.chunk.js",
+    "main.js.map": "/clothing-react/static/js/main.2eed9d52.chunk.js.map",
+    "runtime-main.js": "/clothing-react/static/js/runtime-main.f4bddb58.js",
+    "runtime-main.js.map": "/clothing-react/static/js/runtime-main.f4bddb58.js.map",
+    "static/js/2.e51e3e5e.chunk.js": "/clothing-react/static/js/2.e51e3e5e.chunk.js",
+    "static/js/2.e51e3e5e.chunk.js.map": "/clothing-react/static/js/2.e51e3e5e.chunk.js.map",
+    "index.html": "/clothing-react/index.html",
+    "service-worker.js": "/clothing-react/service-worker.js",
+    "service-worker.js.map": "/clothing-react/service-worker.js.map",
+    "static/css/main.6e75c6f0.chunk.css.map": "/clothing-react/static/css/main.6e75c6f0.chunk.css.map",
+    "static/js/2.e51e3e5e.chunk.js.LICENSE.txt": "/clothing-react/static/js/2.e51e3e5e.chunk.js.LICENSE.txt",
+    "static/media/crown.207ae289.svg": "/clothing-react/static/media/crown.207ae289.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4bddb58.js",
+    "static/js/2.e51e3e5e.chunk.js",
+    "static/css/main.6e75c6f0.chunk.css",
+    "static/js/main.2eed9d52.chunk.js"
+  ]
+}
